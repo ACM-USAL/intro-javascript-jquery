@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<html>
+<head>
+	<style type="text/css">
+		.red{
+			background-color: red;
+		}
+		.blue{
+			background-color: blue;
+		}
+		#elemento{
+			width: 300px;
+			height: 300px;
+		}
+	</style>
+	<script src="jquery.js"></script>
+	<script type="text/javascript">
+	 	 $(document).ready(function(){
+	 	 	$("#elemento").addClass('red');
+	 	 	window.setTimeout(function(){
+	 	 		$("#elemento").removeClass('red');
+	 	 		$("#elemento").addClass('blue');
+	 	 	}, 3000);
+	 	 });
+	</script>
+</head>
+<body>
+	<div id="elemento"></div>
+</body>
+
+</html>

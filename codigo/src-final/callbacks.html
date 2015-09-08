@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<html>
+<head>
+	
+</head>
+<body>
+	<input type="button" value="Alert" onclick="evento_click()"/>
+
+<script type="text/javascript">
+	 	 function evento_click(){
+	 	 	var arr= procesar_array(10, function(elemento){return elemento * -1;})
+	 	 	console.log(arr);
+	 	 }
+
+	 	 function procesar_array(elementos, callback){
+	 	 	var array_numeros = new Array();
+	 	 	for (var i = 0; i<elementos;i++){
+	 	 		array_numeros[i] = callback(i);
+	 	 	}
+	 	 	return array_numeros;
+	 	 }
+	</script>
+</body>
+
+</html>

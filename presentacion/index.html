@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Introducción a JavaScript y jQuery</title>
+
+		<meta name="description" content="Presentación del grupo de ACM USAL sobre JavaScript y jQuery">
+		<meta name="author" content="Diego Martín">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		
+		<link rel="shortcut icon" type="http://usal.acm.org/favicon.ico" href="favicon.ico" />
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+    <script src="http://localhost:35729/livereload.js"></script>
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+      <div class="slides">
+        <section data-markdown="content/presentation.mkd"
+                 data-separator="^\n\n\n"
+                 data-vertical="^\n\n"
+                 data-notes="^Nota: "
+                 data-charset="utf-8">
+        </section>
+
+        <section data-background="#194894">
+          <h3>Fork us on GitHub!</h3>
+          <a href="https://github.com/acm-usal"><img src="content/nyantocat.gif" alt="" class="no-decorations"></a>
+        </section>
+
+        <section>
+        	<section data-background="#F15E45">
+	        	<h3>Próximos eventos</h3>
+	        	<p>Ember.js | Sábado 12 - 17:00 - Espacio Serendipity Coworking</p>
+	        	<a href="http://usal.acm.org/jornadas/content/workshop-de-emberjs"><img src="http://todaymade.com/blog/wp-content/uploads/2013/03/emberjs-logo.png" alt="" class="no-decoration"/></a>
+        	</section>
+        	<section data-background="#000">
+        		<h3>Próximos eventos</h3>
+        		<p>Tizen</p>
+        		<a href="http://usal.acm.org/jornadas/content/tizen-pulsar-watch"><img src="http://usal.acm.org/jornadas/sites/default/files/tizen.png"/></a>
+        	</section>
+        	<section data-background="#7DC4B2">
+        		<h3>Próximos eventos</h3>
+        		<p>Spring ROO | Del 16 al 20 de marzo - Facultad de Ciencias</p>
+        		<a href="http://usal.acm.org/jornadas/content/spring-roo-and-jpa"><img src="http://usal.acm.org/jornadas/sites/default/files/spring.png"/></a>
+        	</section>
+        </section>
+
+      </div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+                  hljs.configure({languages: ['javascript', 'html', 'css']});
+                  hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

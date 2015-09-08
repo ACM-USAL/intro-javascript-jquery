@@ -1,0 +1,720 @@
+<img src="content/escudo+texto.png" width="400px" class="no-decorations" alt="">
+<img src="content/bisite-usal-es.png" width="350px" class="no-decorations" alt="">
+<img src="content/charrosfera.jpg" width="400px" class="no-decorations" alt="">
+
+<p></p>
+Jornadas de desarrollo web
+
+[usal.acm.org/jornadas](http://usal.acm.org/jornadas)
+
+12/03/2015
+
+
+Introducción a JavaScript y jQuery
+----------------------------------
+
+[Código de inicio](codigo/inicial.zip)
+
+[Código final](codigo/final.zip)
+
+
+Historia
+--------
+
+JavaScript es un lenguaje interpretado capaz de trabajar con objetos, diseñado por Netscape para competir contra otros navegadores como Microsoft Internet Explorer
+
+<div class="fragment">
+El objetivo de Netscape era crear un lenguaje sencillo de utilizar que aportara interactividad a sitios web de forma similar a los *Applets* de Java
+
+<div class="fragment">
+Se incluye por primera vez en las betas de Netscape 2.0 y rápidamente gana adopción en la comunidad de desarrolladores
+
+JavaScript !== Java
+
+
+Características
+---------------
+
+* Sintaxis parecida a C, utilizando las convenciones de nombres de Java
+* Tipado dinámico débil
+* Interpretado (generalmente en un cliente web)
+* Orientado a objetos mediante prototipos
+
+
+Primer programa
+---------------
+
+Todo código JavaScript debe estar definido o referenciado en el archivo HTML del sitio web en el que se incluye
+
+<pre><code>&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
+<pre><code>&lt;script&gt;
+console.log("Hola, Mundo!");
+&lt;/script&gt;</code></pre>
+<pre><code>&ltinput onclick="domagic()"&gt</code></pre>
+
+
+Primer programa
+---------------
+
+<pre><code><script type="text/javascript">
+            document.write("<h2>Hola, mundo!</h2>");
+            document.write("<ul>");
+            for (var i = 0; i <= 10; i++) {
+                document.write("<li>"+i+"</li>");
+            };
+            document.write("</ul>");</script>
+</code></pre>
+
+
+'Entorno de desarrollo'
+-----------------------
+
+<code>Ctrl+Shift+J</code> abre una consola JavaScript tipo pregunta-respuesta.
+El código se ejecuta en el contexto de la página web en la que abrimos la consola.
+
+![Consola de JavaScript](content/consola.png)
+
+
+
+Características básicas del lenguaje
+------------------------------------
+
+* JavaScript es un lenguaje que hereda la sintaxis de C y las clases básicas de Java
+* Sensible a mayúsculas y minúsculas.
+* Variables sin tipo de dato
+                
+    * <code>entero = 12</code>
+    * <code>real = 1.2</code>
+    * <code>cadena = "hola!"</code>
+    * <code>boolean = true</code>
+    * <code>null</code>
+    * <code>array = [1,2]</code>
+    * <code>asociativo = {x:1, y:2}</code>
+
+
+Novedades
+---------
+
+* <code>===</code>, <code>!==</code>
+* <code>undefined</code>: Todo lo que no se haya definido tiene este valor (ej. variables inexistentes)
+* <code>null</code>: Indica la ausencia de valor. Indica que la variable no contiene ningún objeto, número, cadena o booleano válido
+* <code>Object</code>: Cualquier dato que no pertenezca al resto de tipos</li>
+* Creación de objetos / Arrays asociativos
+* Expresiones regulares
+* Novedades en las funciones
+
+
+
+Variables
+---------
+
+<pre><code>var perro = "Sansón";
+console.log("Mi perro se llama " + perro);
+
+perro = "Rufus";
+console.log("Mi perro ahora se llama " + perro);</code></pre>
+
+
+Condicionales
+-------------
+
+<pre><code>var ladrido = "guau guau guau guau";
+
+if (ladrido.length &lt; 5) {
+    console.log("Buen chico");
+} else if (perro.length &lt; 10) {
+    console.log("Silencio, Rufus.");
+} else {
+    console.log("Cállate, chucho.");
+}</code></pre>
+
+
+Iteraciones: <code>while</code>
+------------------------
+
+    var num = 6;
+    var factorial = 1;
+
+    while (num > 1) {
+        factorial = factorial * num;
+        num = num - 1;
+    }
+
+<p></p>
+
+    var num = 6;
+    var factorial = 1;
+
+    while (num > 1)
+        factorial *= num--;
+
+
+Iteraciones: <code>for</code>
+----------------------
+
+    var num = 17;
+    var primo = true;
+    for (var i = 2; i &lt; num; i++) {
+    if (num % i == 0) {
+            primo = false;
+            break;
+        }
+    }
+
+
+
+Colecciones de datos
+--------------------
+
+    var vocales = ['A','E','I','O'];
+    console.log(vocales.length);
+    vocales[0];
+    vocales.push('U');
+    vocales
+
+
+Colecciones de datos
+--------------------
+
+* Un array es una colección de elementos
+* Puede contener elementos de diferente tipo
+* Se accede a sus valores de la misma forma que en C/Java
+
+
+Operaciones sobre arrays
+------------------------
+* Acceso a elementos con el operador <code>[]</code>
+* La gestión de memoria es automática
+  * <code>a[0] = 1; a[10000]=2;</code>
+* Los arrays incluyen por defecto una gran cantidad de operaciones
+  * <code>length</code>, <code>.join()</code>, <code>.reverse()</code>, <code>.concat()</code>, <code>.sort()</code>
+  * <code>slice()</code>, <code>.splice()</code>, <code>.push()</code>, <code>.pop()</code>, <code>.shift()</code>, <code>.unshift()</code>
+
+
+
+Objetos
+-------
+
+####Un objeto en JavaScript es un array asociativo, con strings como claves y valores de cualquier tipo (funciones, arrays, variables...)
+
+<pre><code>
+var perro={
+    "nombre": "Sansón",
+    "alimento": "Patatas"
+};
+</code></pre>
+
+Operaciones con objetos
+-----------------------
+
+<pre><code>
+perro.nombre
+perro['nombre']
+perro.alimento
+"ladrido" in perro
+delete perro["alimento"]</code></pre>
+
+
+Orientación a prototipos
+------------------------
+
+####En vez de tener clases que sirvan de 'plantilla' para la creación de objetos, los objetos se crean mediante la clonación de otros objetos
+
+    var Rectangulo = function(ancho, alto){
+        this.ancho = ancho;
+        this.alto = alto;
+    }
+    var r0 = new Rectangulo();
+    var r1 = new Rectangulo(3);
+    var r2 = new Rectangulo(2, 3);
+
+<p></p>
+
+    var Rectangulo = function(ancho, alto){
+        this.ancho = undefined || ancho ;
+        this.alto = undefined || ancho;
+    }
+    var r0 = new Rectangulo();
+    var r1 = new Rectangulo(3);
+    var r2 = new Rectangulo(2, 3);
+
+
+
+Inclusión de métodos
+--------------------
+
+    var Rectangulo = function(ancho, alto){
+        this.ancho = ancho || 3;
+        this.alto = alto || 3;
+
+        this.area = function(){
+            return ancho*alto;
+        }
+    }
+    var r0 = new Rectangulo(4,4);
+    r0.area();
+
+
+JSON
+----
+La *JavaScript Object Notation* es un subconjunto de JavaScript (con algunas adiciones) que se ha popularizado recientemente en la transmisión y almacenamiento de datos.
+Generalmente es trivial utilizar JSON en JavaScript
+
+<pre><code>var cadena = '{"perro": "Sansón", "gato":"Chachito"}';
+cadena_json = JSON.parse(cadena);
+cadena_json.perro;</code></pre>
+
+
+
+Funciones
+---------
+
+<pre><code>function print_sum(a, b) {
+    var result = a + b;
+    console.log(a + " + " + b + " = " + result);
+    return result;
+}</code></pre>
+
+Pueden devolver valores de cualquier tipo
+
+
+Funciones
+---------
+
+Crean ámbito
+<pre><code>var cosa = 1;
+
+function miFuncion() {
+    var cosa = 2;
+}
+miFuncion();</code></pre>
+
+
+Funciones
+---------
+
+Pueden crearse y evaluarse en la misma expresión.
+<pre><code>(function() {
+    var nombre = "Pepe";
+    console.log("Hola, Mundo. Me llamo " + nombre);
+})();</code></pre>
+
+
+Funciones
+---------
+
+Pueden utilizarse como métodos.
+
+    var perro = {
+        "nombre": "Sansón",
+        "alimento": "patatas",
+        "ladrido": "guau",
+        "ladrar": function() {
+            var resultado = "";
+
+            for (var i = 0; i < 3; i++) {
+                resultado += this.ladrido;
+            }
+
+            console.log(resultado);
+        }
+    };
+
+<p></p>
+
+    > perro.ladrar()
+
+
+Funciones
+---------
+
+Pueden pasarse como argumento.
+
+    window.setTimeout(function() {
+        perro.ladrar();
+    }, 1000);
+
+<div class="fragment">
+
+Cuidado, esto no funcionará:
+
+<pre><code>window.setTimeout(perro.ladrar(), 1000);</code></pre>
+
+</div>
+
+<div class="fragment">
+
+Ni esto tampoco:
+
+<pre><code>window.setTimeout(perro.ladrar, 1000);</code></pre>
+
+</div>
+
+
+Funciones
+---------
+
+Son también objetos, por lo que pueden tener propiedades...
+
+    function cutString(str, length) {
+        length = length || cutString.defaultLength;
+        if (str.length > length) {
+            return str.substr(0, length) + "...";
+        } else {
+            return str;
+        }
+    }
+    cutString.defaultLength = 5;
+
+<div class="fragment">
+O incluso métodos.
+
+<pre><code>cutString.increaseDefaultLength = function() {
+    this.defaultLength++;
+}</code></pre>
+
+
+Funciones
+---------
+
+Pueden usar variables de funciones exteriores (cierres o *closures*).
+
+    function ladrarEnDiferido(ladrido) {
+        var mensaje = "El perro dice " + ladrido;
+        window.setTimeout(function() {
+            console.log(mensaje);
+        }, 2000);
+    }
+
+<p></p>
+
+    > ladrarEnDiferido("guau");
+    (un segundo después...)
+    > ladrarEnDiferido("hola");
+    (dos segundos después)
+    El perro dice guau
+    El perro dice hola
+
+
+Aunque hay que tener cuidado...
+
+    var contador = 100;
+    var objetos = [{}, {}, {}];
+
+    for (var i = 0; i < objetos.length; i++) {
+        var id = contador;
+        objetos[i].quienSoy = function() {
+            return "Soy " + id;
+        };
+        contador += 1;
+    }
+
+<div class="fragment">
+<pre><code>&gt; objetos[0].quienSoy()
+"Soy 102"
+&gt; objetos[1].quienSoy()
+"Soy 102"
+&gt; objetos[2].quienSoy()
+"Soy 102"</code></pre>
+</div>
+
+Nota: Las funciones son las únicas entidades que crean ámbito. Los bucles no lo crean, por lo que sólo se crea una variable `id` para toda la ejecución de la función. El cierre de `quienSoy()` mantiene una referencia a esta variable, pero su valor es obtenido cuando la función es llamada, demasiado tarde.
+
+
+Versión corregida.
+
+    var contador = 100;
+    var objetos = [{}, {}, {}];
+
+    for (var i = 0; i < objetos.length; i++) {
+        (function() {
+            var id = contador;
+            objetos[i].quienSoy = function() {
+                return "Soy " + id;
+            };
+            contador += 1;
+        })();
+    }
+
+<p></p>
+
+    > objetos[0].quienSoy()
+    "Soy 100"
+    > objetos[1].quienSoy()
+    "Soy 101"
+    > objetos[2].quienSoy()
+    "Soy 102"
+
+Nota: Al colocar una función dentro del bucle estamos creando un ámbito nuevo en cada iteración, el cual contiene una variable `id` que inicializamos con el **valor** de contador.
+
+
+
+Callbacks
+---------
+
+Un *callback* es una referencia a una secuencia de instrucciones (función) que se ejecutará cuando acabe el procesado de la tarea inicial.
+
+<pre><code>window.setTimeout(function(){console.log("Acabé")}, 3000);</code></pre>
+
+Con ellos podemos coordinar acciones que van a tardar cierto tiempo en segundo plano, o encadenar fácilmente elementos.
+
+
+Eventos
+-------
+
+Un evento es un suceso que se dispara cuando se cumplen una serie de condiciones (interacción del usuario, carga completa de la web...) a los que puede asociarse un comportamiento mediante funciones.
+
+Podemos añadir eventos directamente en el código HTML:
+
+<pre><code><input type="button" value="Alert" onclick="evento_click()"/></code></pre>
+<pre><code>function evento_click(){
+            alert("Click");
+}</code></pre>
+
+
+Eventos
+-------
+
+Existe una gran cantidad de eventos aplicables a los diferentes elementos de una página web
+
+<pre><code>onkeydown, onkeypress, onkeyup, onload, onerror, onscroll</code>...</pre>
+
+
+Aplicaciones de JavaScript
+--------------------------
+
+JavaScript es un lenguaje diseñado inicialmente para crear páginas web dinámicas
+Sin embargo (y en particular recientemente) el lenguaje se utiliza en otros contextos (JavaScript en el lado del servidor, programación de aplicaciones de escritorio (QML, Unity3D)...)
+
+
+Webs interactivas
+-----------------
+
+Con JavaScript podemos crear webs interactivas que respondan a la interacción con el usuario o a la entrada de datos según como deseemos.
+Permite controlar la mayoría de los aspectos de visualización de un sitio web
+
+
+Document Object Model
+---------------------
+
+Básicamente, un conjunto de APIs que permiten interactuar con los elementos de una página web de forma estándar.
+
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/DocumentObjectModelES.svg/576px-DocumentObjectModelES.svg.png" alt="DOM" style="width: 300px;"/>
+
+Dos objetos clave: <code>document</code> y <code>window</code>
+
+
+Objeto <code>Window</code>
+-------------
+Accesible mediante la variable global <code>window</code>, contiene información sobre la ventana en la que se muestra el código.
+<pre><code>
+    window.location
+    window.history //.back(), .forward()
+    window.screen //availWidth, availHeight, width, height
+    window.navigator
+    window.open(url, "smallwin", "width=400, status=yes, resizable=no")
+    window.close()
+</code></pre>
+
+
+Objeto <code>Document</code>
+---------
+
+Contiene información sobre los objetos presentes en la página.
+<pre><code>document.images
+document.links
+document.cookie
+document.domain
+document.forms[]
+document.title
+document.URL
+document.forms[0].onsubmit = function(){magic();};</code></pre>
+
+
+Ejemplo básico
+--------------
+
+<pre><code>var d = new Date();
+document.write(d.toLocaleString());
+document.close();</code></pre>
+
+<!--document.write(), document.close()-->
+        <!--Ejemplo con forms, HTML pg 256, buttons 258, ¿cookies?-->
+        <!--pg237 document.helpimage.src-->
+        <!--chaining-->
+        <!--Confirm()-->
+        <!--setTimeout, setInterval, resizeBy, print-->
+        <!--alert-->
+        <!--embedding html, javascript in URL-->
+        <!--ejemplos de DOM-->
+        <!--event handling-->
+
+
+
+<!--jQuery-->
+------
+
+<img src="http://www.geeks.gallery/wp-content/uploads/2015/01/jQurery.gif" height="250px"/>
+
+Biblioteca escrita en JavaScript que permite interactuar con el DOM, manipular eventos, crear peticiones asíncronas y generar efectos y animaciones de forma sencilla.
+
+<code>$(...) / jQuery()</code> es la forma de interactuar
+
+
+Inclusión de jQuery en HTML 
+-------------------
+
+Como hemos visto antes, solo es necesario añadir la referencia a la localización del archivo.
+
+<pre><code><script src="jquery.js"></script></code></pre>
+
+
+
+Selección de elementos del DOM
+------------------------------
+
+Los selectores de jQuery son los mismos que los utilizados en CSS
+<pre><code>$(".clase");
+$("#id")
+$("div")
+$("div[name='central']")
+</code></pre>
+Con un selector podemos seleccionar un grupo de elementos y aplicar propiedades a todos a la vez
+
+
+Ejemplo
+-------
+<pre><code><div id="capa" style="padding: 10px; background-color: #ff8800">Haz clic en un botón</div>
+<input type="button" value="Botón A" onclick="$('#capa').html('Has hecho clic en <b>A</b>')">
+<input type="button" value="Botón B" onclick="$('#capa').html('Recibido un clic en <b>B</b>')"></code></pre>
+
+<pre><code><div class="textArea"></div>
+<div class="textArea"></div>
+$(".textArea").html('<p>Lorem Ipsum</p>')</code></pre>
+
+<pre><code>$("#elemento").css("background-color", "#444");
+$("#elemento").addClass();</code></pre>
+
+
+<code>$(document).ready()</code>
+--------
+
+Es un evento que retrasa la ejecución del código hasta que todos los elementos del DOM estén cargados.
+Garantiza que todos los elementos con los que JavaScript debe trabajar estén debidamente dispuestos.
+
+<pre><code>$(document).ready(function(){init();});</code></pre>
+
+
+Eventos
+-------
+
+jQuery permite gestionar los diferentes eventos vistos anteriormente
+
+<pre><code>$("a").click(function(){});
+$("a").on('click', function(evento){
+    a.preventDefault();
+});</code></pre>
+
+
+Animaciones
+-----------
+
+Permiten realizar transformaciones sobre elementos de forma sencilla, controlando el tiempo de la animación, curva de evolución, etc...
+<pre><code>.hide("slow"), .show(3000), toggle(4000)</code></pre>
+
+Existe además una extensión de jQuery, [jQuery UI](http://jqueryui.com/) que incluye una gran cantidad elementos de interacción y animaciones.
+
+
+AJAX básico
+-----------
+
+Las peticiones AJAX permiten dotar de mayor interactividad a una página, permitiendo cargar nuevos elementos sin recargar la página.
+
+A pesar de que la tecnología inicial utilizada en AJAX era XML, ahora mismo es muy común utilizar JSON como formato de representación de dato.
+
+<pre><code>$(document).ready(function(){
+   $("#enlaceajax").click(function(evento){
+      evento.preventDefault();
+      $("#destino").load("contenido-ajax.html");
+   });
+});
+</code></pre>
+
+
+AJAX
+----
+
+<pre><code>$(document).ready(function(){
+   $("#enlaceajax").click(function(evento){
+      evento.preventDefault();
+      $("#cargando").css("display", "inline");
+      $("#destino").load("pagina-lenta.php", function(){
+         $("#cargando").css("display", "none");
+      });
+   });
+})</code></pre>
+
+
+
+AJAX
+----
+
+La funcion <code>.ajax()</code> permite añadir parámetros a la petición, añadiendo además manejadores de eventos, tipo de contenido a solicitar...
+
+<pre><code>
+    var ajax_call = function(){
+    $.ajax({
+        type:"GET",
+        url:'http://acm.martinarroyo.net/getdata/',
+        dataType:"json",
+        beforeSend: function(){
+            console.log("Enviando");
+        }
+        success:function(response){
+            console.log(response.number);
+            
+        },
+        error : function(rs, e) {
+            console.log("Error");
+        }
+    });
+};
+
+ajax_call();
+setInterval(ajax_call, 1000);
+
+</code></pre>
+
+
+
+##Recursos
+
+<div class="link-cards">
+<a href="https://developer.mozilla.org/">
+    <div class="link-card" style="width: 30%;">
+        <img src="https://mdn.mozillademos.org/files/6457/mdn_logo_only_color.png" alt="">
+        <div class="link-name">Mozilla Developer Network</div>
+        <div class="link-url">https://developer.mozilla.org/</div>
+    </div>
+</a>
+<a href="http://devdocs.io/">
+    <div class="link-card" style="width: 30%;">
+        <img src="content/devdocs.png" alt="">
+        <div class="link-name">DevDocs</div>
+        <div class="link-url">http://devdocs.io/</div>
+    </div>
+</a>
+<a href="http://www.ecmascript.org/">
+    <div class="link-card" style="width: 30%;">
+        <img src="content/js.png" alt="">
+        <div class="link-name">ECMAScript</div>
+        <div class="link-url">http://www.ecmascript.org/</div>
+    </div>
+</a>
+</div>
+
+
+
+##Buena lectura
+
+![HTML & CSS](content/libro_css.jpg)

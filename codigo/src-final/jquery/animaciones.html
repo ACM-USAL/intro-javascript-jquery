@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<html>
+<head>
+	<style type="text/css">
+		.red{
+			background-color: red;
+		}
+		.blue{
+			background-color: blue;
+		}
+		.elemento{
+			width: 100px;
+			height: 100px;
+			margin: 2px;
+		}
+	</style>
+	<script src="jquery.js"></script>
+	<script type="text/javascript">
+	 	 $(document).ready(function(){
+	 	 	$(".elemento").click(function(){
+	 	 		$(this).hide("slow");
+	 	 	});
+	 	 	$("#mostrar").click(function(){
+	 	 		$(".elemento").show(3000, function(){
+	 	 			$(this).toggleClass('red');
+	 	 			$(this).toggleClass('blue');
+	 	 		});
+	 	 	});
+	 	 });
+	</script>
+</head>
+<body>
+	<div class="elemento red"></div>
+	<div class="elemento red"></div>
+	<div class="elemento red"></div>
+	<div class="elemento red"></div>
+	<div class="elemento red"></div>
+	<div class="elemento red"></div>
+	<div class="elemento red"></div>
+
+	<input id="mostrar" type="button" value="Mostrar"/>
+</body>
+
+</html>
